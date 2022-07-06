@@ -39,7 +39,7 @@ nano  /etc/hostname
 
 pacman  -S net-tools
 
-pacman  -S network-manager
+pacman  -S networkmanager
 
 mkinitcpio -P
 
