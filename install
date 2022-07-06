@@ -1,0 +1,96 @@
+fdisk  -l
+
+cfdisk -z /dev/sda
+[
+Select label type= "dos"
+
+Select "New" change partition size to "1GB" and set "type" into " Linux- swap/Solaris "
+Select "free space"(scroll down), set into "write " and make it into "bootable"
+
+[Exit]
+]
+
+mkfs.ext4  /dev/sda2
+
+mkswap  /dev/sda1
+
+mount  /dev/sda2  /mnt
+
+swapon  /dev/sda1
+
+pacstrap  /mnt base linux linux-firmware
+
+genfstab -U  /mnt >> /mnt/etc/fstab
+
+arch-chroot  /mnt
+
+------ install nano------
+
+pacman  -S nano
+
+nano  /etc/hostname
+
+[name] enter host name
+
+[Ctrl O] To Save
+
+[Ctrl X] to Exit
+
+packman  -S net-tools
+
+packman  -S network-manager
+
+mkinitcpio -P
+
+passwd
+
+[enter the password]
+
+[re-enter]
+
+pacman  -S grub
+
+grub-install  /dev/sda
+
+grub-mkconfig -o /boot/grub/grub.cfg
+
+[Ctrl D]
+
+reboot
+
+
+[login]
+
+systemctl start NetworkManager
+
+systemctl status NetworkManager
+
+systemctl enable NetworkManager
+
+ping google.com
+
+pacman  -S xfce4
+
+pacman  -S lightdm
+
+pacman  -S xorg
+
+pacman  -S sudo
+
+[ Power off and Power On]
+
+
+
+[login]
+
+startxfce4
+
+[login]
+
+[Open Terminal]
+
+pacman  -S lightdm-gtk-greeter
+
+systemctl enable lightdm
+
+systemctl reboot
