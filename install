@@ -1,6 +1,7 @@
 fdisk  -l
 
 cfdisk -z /dev/sda
+
 [
 Select label type= "dos"
 
