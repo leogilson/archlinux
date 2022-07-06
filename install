@@ -37,9 +37,9 @@ nano  /etc/hostname
 
 [Ctrl X] to Exit
 
-packman  -S net-tools
+pacman  -S net-tools
 
-packman  -S network-manager
+pacman  -S network-manager
 
 mkinitcpio -P
 
